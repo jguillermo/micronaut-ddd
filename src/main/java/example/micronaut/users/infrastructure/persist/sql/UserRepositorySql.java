@@ -27,7 +27,7 @@ public class UserRepositorySql implements UserRepository {
     @Override
     @Transactional
     public void persist(User user) {
-        UserDao userDao = new UserDao(user.getUserId().value(),user.getUserName().value());
+        UserDao userDao = new UserDao(user);
         entityManager.persist(userDao);
 
     }
@@ -36,7 +36,7 @@ public class UserRepositorySql implements UserRepository {
 	public Optional<User> findById(UserId userId) {
 		UserDao userDao = entityManager.find(UserDao.class, userId.value());
 		if (userDao != null) {
-			return Optional.of(new User(new UserId(userDao.getUserId()), new UserName(userDao.getUserName())));
+			return Optional.of(userDao.toDomain());
 		} else {
 			return Optional.empty();
 		}
