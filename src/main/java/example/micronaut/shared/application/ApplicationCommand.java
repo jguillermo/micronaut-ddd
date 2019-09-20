@@ -1,4 +1,7 @@
 package example.micronaut.shared.application;
 
-public abstract class ApplicationCommand {
+public interface ApplicationCommand<T extends CommandBase> {
+	
+	public void execute(T command);
+	
 }
