@@ -1,4 +1,4 @@
-package example.micronaut.usuario.domain;
+package example.micronaut.users.domain;
 
 import example.micronaut.shared.domain.TypeString;
 
