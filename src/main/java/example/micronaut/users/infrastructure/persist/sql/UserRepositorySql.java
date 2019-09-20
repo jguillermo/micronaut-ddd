@@ -1,5 +1,11 @@
 package example.micronaut.users.infrastructure.persist.sql;
 
+import java.util.Optional;
+
+import javax.inject.Singleton;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import example.micronaut.users.domain.User;
 import example.micronaut.users.domain.UserId;
 import example.micronaut.users.domain.UserName;
@@ -7,10 +13,6 @@ import example.micronaut.users.domain.UserRepository;
 import example.micronaut.users.infrastructure.persist.sql.dao.UserDao;
 import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.spring.tx.annotation.Transactional;
-
-import javax.inject.Singleton;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @Singleton
 public class UserRepositorySql implements UserRepository {
@@ -31,8 +33,12 @@ public class UserRepositorySql implements UserRepository {
     }
 
 	@Override
-	public User find(UserId userId) {
+	public Optional<User> findById(UserId userId) {
 		UserDao userDao = entityManager.find(UserDao.class, userId.value());
-		return new User(new UserId(userDao.getUserId()), new UserName(userDao.getUserName()));
+		if (userDao != null) {
+			return Optional.of(new User(new UserId(userDao.getUserId()), new UserName(userDao.getUserName())));
+		} else {
+			return Optional.empty();
+		}
 	}
 }
