@@ -1,11 +1,19 @@
 package example.micronaut.shared.domain;
 
 
-public abstract class TypeLong extends TypeBase<Long> {
+public abstract class TypeInteger extends TypeBase<Integer> {
 
-    public TypeLong(Long value) {
+    public TypeInteger(Integer value) {
         super(value);
     }
+
+	/*public TypeInteger(String value, BadRequestException ex) {
+		if (StringUtils.isBlank(value) || !NumberUtils.isDigits(value)) {
+			throw ex;
+		}
+		this.value = Integer.valueOf(value);
+	}*/
+
 
     @Override
     public int hashCode() {
@@ -23,7 +31,7 @@ public abstract class TypeLong extends TypeBase<Long> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        TypeLong other = (TypeLong) obj;
+        TypeInteger other = (TypeInteger) obj;
         if (value() == null) {
             if (other.value() != null)
                 return false;

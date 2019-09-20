@@ -1,25 +1,10 @@
-package pe.lacafetalab.pao.shared.domain.valueobject;
+package example.micronaut.shared.domain;
 
-import javax.persistence.Embeddable;
 
-@Embeddable
-public class UserId extends UUIDValueObject {
-	private static final long serialVersionUID = 1L;
-
-	protected UserId() {
-	}
+public class UserId extends TypeId {
 
 	public UserId(String uuid) {
 		super(uuid);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
 }
