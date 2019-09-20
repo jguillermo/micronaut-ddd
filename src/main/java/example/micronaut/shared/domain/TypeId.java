@@ -1,8 +1,8 @@
 package example.micronaut.shared.domain;
 
+import example.micronaut.shared.exception.BadRequestException;
 
 public abstract class TypeId extends TypeUUID {
-
 
     public TypeId(String id) {
         super(id);
@@ -10,6 +10,4 @@ public abstract class TypeId extends TypeUUID {
             throw new BadRequestException("El id no puede nulo");
         }
     }
-
-
 }

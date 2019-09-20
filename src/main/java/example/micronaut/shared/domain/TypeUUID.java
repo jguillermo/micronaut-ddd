@@ -2,6 +2,8 @@ package example.micronaut.shared.domain;
 
 import java.util.UUID;
 
+import example.micronaut.shared.exception.BadRequestException;
+
 public abstract class TypeUUID extends TypeString {
 
     public TypeUUID(String uuid) {
@@ -14,7 +16,7 @@ public abstract class TypeUUID extends TypeString {
             return;
         }
         try {
-            UUID.fromString(uuid);
+            UUID.fromString(value());
         } catch (IllegalArgumentException exception) {
             throw new BadRequestException("Uuid value no valid");
         }
