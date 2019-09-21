@@ -30,7 +30,7 @@ public class UsersController {
 
     @Get(value = "/{userId}")
     public UserFindResponse find(String userId) {
-        UserFindQuery query = new UserFindQuery(userId)
+        UserFindQuery query = new UserFindQuery(userId);
         return this.userFindQueryHandler.execute(query);
     }
 }
