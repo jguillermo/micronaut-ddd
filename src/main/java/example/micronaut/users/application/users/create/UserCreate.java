@@ -1,21 +1,24 @@
 package example.micronaut.users.application.users.create;
 
-import example.micronaut.shared.application.ApplicationCommand;
 import example.micronaut.users.domain.User;
+import example.micronaut.users.domain.UserId;
+import example.micronaut.users.domain.UserName;
 import example.micronaut.users.domain.UserRepository;
 
-public class UserCreate implements ApplicationCommand<UserCreateCommand> {
+import javax.inject.Singleton;
 
-	private UserRepository userRepository;
+@Singleton
+public class UserCreate {
 
-	public UserCreate(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+    private UserRepository userRepository;
 
-	@Override
-	public void execute(UserCreateCommand command) {
-		User user = User.create(command.getUserId(), command.getUserName());
-		userRepository.persist(user);
+    public UserCreate(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-	}
+    public void create(UserId userId, UserName userName) {
+        User user = User.create(userId, userName);
+        userRepository.persist(user);
+    }
+
 }

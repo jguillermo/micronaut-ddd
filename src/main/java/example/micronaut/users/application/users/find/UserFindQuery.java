@@ -1,6 +1,6 @@
-package example.micronaut.users.application.users.create;
+package example.micronaut.users.application.users.find;
 
-import example.micronaut.shared.application.CommandBase;
+import example.micronaut.shared.application.QueryBase;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateCommand extends CommandBase {
+public class UserFindQuery extends QueryBase {
     private String userId;
-    private String userName;
 }
