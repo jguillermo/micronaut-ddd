@@ -7,10 +7,12 @@ import javax.persistence.*;
 import example.micronaut.users.domain.User;
 import example.micronaut.users.domain.UserId;
 import example.micronaut.users.domain.UserName;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user")
 @Getter
+@NoArgsConstructor
 public class UserDao {
 	@Id
 	@Column(name = "id", length = 36, unique = true, nullable = false)

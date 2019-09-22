@@ -4,6 +4,9 @@ import example.micronaut.shared.application.QueryHandlerBase;
 import example.micronaut.users.domain.User;
 import example.micronaut.users.domain.UserId;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class UserFindQueryHandler implements QueryHandlerBase<UserFindQuery, UserFindResponse> {
 
     private UserFind userFind;

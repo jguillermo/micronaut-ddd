@@ -33,6 +33,7 @@ public class UserRepositorySql implements UserRepository {
     }
 
 	@Override
+    @Transactional(readOnly = true)
 	public Optional<User> findById(UserId userId) {
 		UserDao userDao = entityManager.find(UserDao.class, userId.value());
 		if (userDao != null) {

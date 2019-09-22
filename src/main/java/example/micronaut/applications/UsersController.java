@@ -1,4 +1,4 @@
-package example.micronaut.controller;
+package example.micronaut.applications;
 
 import example.micronaut.users.application.users.create.UserCreateCommand;
 import example.micronaut.users.application.users.create.UserCreateCommandHandler;

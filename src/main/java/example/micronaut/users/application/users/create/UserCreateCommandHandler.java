@@ -4,6 +4,9 @@ import example.micronaut.shared.application.CommandHandlerBase;
 import example.micronaut.users.domain.UserId;
 import example.micronaut.users.domain.UserName;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class UserCreateCommandHandler implements CommandHandlerBase<UserCreateCommand> {
 
     private UserCreate service;
