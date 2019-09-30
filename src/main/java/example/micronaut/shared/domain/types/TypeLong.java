@@ -1,4 +1,4 @@
-package example.micronaut.shared.domain;
+package example.micronaut.shared.domain.types;
 
 
 public abstract class TypeLong extends TypeBase<Long> {

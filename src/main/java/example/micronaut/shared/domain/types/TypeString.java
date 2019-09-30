@@ -1,4 +1,4 @@
-package example.micronaut.shared.domain;
+package example.micronaut.shared.domain.types;
 
 public abstract class TypeString extends TypeBase<String> {
 
@@ -31,4 +31,8 @@ public abstract class TypeString extends TypeBase<String> {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return this.value();
+	}
 }

@@ -1,4 +1,4 @@
-package example.micronaut.shared.domain;
+package example.micronaut.shared.domain.types;
 
 public abstract class TypeBase<T> {
     private T value;
@@ -14,4 +14,7 @@ public abstract class TypeBase<T> {
     public boolean isNull() {
         return this.value == null;
     }
+
+    @Override
+    abstract public String toString();
 }

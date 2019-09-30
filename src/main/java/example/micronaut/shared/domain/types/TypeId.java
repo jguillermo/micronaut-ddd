@@ -1,4 +1,4 @@
-package example.micronaut.shared.domain;
+package example.micronaut.shared.domain.types;
 
 import example.micronaut.shared.exception.BadRequestException;
 
